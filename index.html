@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicole Orquiola | ePortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="animate-gradient min-h-screen text-primary">
+
+  <!-- Mobile hamburger -->
+  <button id="menuToggle" class="lg:hidden fixed top-4 left-4 z-50 glass p-2.5 rounded-lg text-muted">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <!-- Mobile overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay fixed inset-0 bg-black/10 z-30 lg:hidden"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="glass-dark fixed left-0 top-0 h-full w-64 z-40 flex flex-col overflow-y-auto lg:translate-x-0 text-primary">
+
+    <!-- Profile -->
+    <div class="p-6 text-center border-b border-card/40">
+      <div class="w-20 h-20 rounded-full mx-auto mb-3 overflow-hidden avatar-glow bg-cream">
+        <img id="avatarImg" class="w-full h-full object-cover" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23C4DFAA' width='100' height='100'/%3E%3Ctext x='50' y='58' text-anchor='middle' fill='%2373A9AD' font-size='28' font-family='Inter'%3EN%3C/text%3E%3C/svg%3E" alt="Avatar">
+      </div>
+      <h2 class="font-semibold text-lg text-primary">Nicole Orquiola</h2>
+      <p class="text-sm text-muted">Aspiring Biology Professor</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 p-3 space-y-1">
+      <a class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-lg" data-page="home">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>Home</span>
+      </a>
+      <a class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg" data-page="assessment">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        <span>Assessment</span>
+      </a>
+      <a class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg" data-page="evidences">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <span>Evidences</span>
+      </a>
+      <a class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg" data-page="reflection">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        <span>Reflection</span>
+      </a>
+      <a class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg" data-page="retrospection">
+        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Retrospection</span>
+      </a>
+    </nav>
+
+    <!-- Footer -->
+    <div class="p-4 border-t border-card/40 text-center">
+      <a href="admin.html" class="text-xs text-muted hover:text-primary transition">Admin Panel</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="lg:ml-64 min-h-screen p-4 md:p-8 pt-16 lg:pt-8">
+
+    <!-- ===== HOME ===== -->
+    <section id="page-home" class="section-frame">
+      <div class="max-w-5xl mx-auto space-y-8">
+
+        <!-- Hero -->
+        <div class="glass rounded-2xl p-8 md:p-12 text-center">
+          <div class="w-28 h-28 rounded-full mx-auto mb-4 overflow-hidden avatar-glow bg-cream">
+            <img id="heroAvatarImg" class="w-full h-full object-cover" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23C4DFAA' width='100' height='100'/%3E%3Ctext x='50' y='58' text-anchor='middle' fill='%2373A9AD' font-size='28' font-family='Inter'%3EN%3C/text%3E%3C/svg%3E" alt="Avatar">
+          </div>
+          <h1 class="text-3xl md:text-4xl font-extrabold mb-2 text-primary">Nicole Orquiola</h1>
+          <p class="text-lg text-primary font-medium opacity-80">Aspiring Biology Professor</p>
+        </div>
+
+        <!-- Quote -->
+        <div class="glass rounded-2xl p-6 md:p-8 text-center">
+          <svg class="w-8 h-8 text-primary mx-auto mb-3 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <div id="quoteBody" class="text-muted italic leading-relaxed text-lg">Loading...</div>
+        </div>
+
+        <!-- About + Philosophy grid -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass rounded-2xl p-6 md:p-8">
+            <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2 text-primary">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              About Me
+            </h2>
+            <div id="aboutBody" class="text-muted leading-relaxed whitespace-pre-line">Loading...</div>
+          </div>
+          <div class="glass rounded-2xl p-6 md:p-8">
+            <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2 text-primary">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              Philosophy
+            </h2>
+            <div id="philosophyBody" class="text-muted leading-relaxed whitespace-pre-line">Loading...</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== ASSESSMENT ===== -->
+    <section id="page-assessment" class="section-frame hidden-section">
+      <div class="max-w-5xl mx-auto space-y-6">
+        <h1 class="text-2xl md:text-3xl font-extrabold mb-2 text-primary">Self Assessment</h1>
+        <p class="text-muted mb-6">Reflection on my competencies and growth areas.</p>
+        <div class="glass rounded-2xl p-6 md:p-8">
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex-1">
+              <div id="assessmentBody" class="text-muted leading-relaxed whitespace-pre-line">Loading...</div>
+            </div>
+            <div id="assessmentImg" class="w-full md:w-56 h-44 rounded-xl overflow-hidden flex-shrink-0 hidden"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EVIDENCES ===== -->
+    <section id="page-evidences" class="section-frame hidden-section">
+      <div class="max-w-6xl mx-auto space-y-6">
+        <h1 class="text-2xl md:text-3xl font-extrabold mb-2 text-primary">Evidences</h1>
+        <p class="text-muted mb-4">Curated collection of work demonstrating core competencies across academic years.</p>
+
+        <!-- Year tabs -->
+        <div id="evidenceYears" class="flex gap-2 flex-wrap border-b border-card/40 pb-4"></div>
+
+        <!-- Category cards -->
+        <div id="evidenceCategories" class="space-y-4"></div>
+      </div>
+    </section>
+
+    <!-- ===== REFLECTION ===== -->
+    <section id="page-reflection" class="section-frame hidden-section">
+      <div class="max-w-4xl mx-auto space-y-6">
+        <h1 class="text-2xl md:text-3xl font-extrabold mb-2 text-primary">Reflection</h1>
+        <p class="text-muted mb-4">Personal thoughts on the learning journey.</p>
+        <div class="glass rounded-2xl p-8">
+          <div id="reflectionBody" class="text-muted leading-relaxed whitespace-pre-line">Loading...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RETROSPECTION ===== -->
+    <section id="page-retrospection" class="section-frame hidden-section">
+      <div class="max-w-4xl mx-auto space-y-6">
+        <h1 class="text-2xl md:text-3xl font-extrabold mb-2 text-primary">Retrospection</h1>
+        <p class="text-muted mb-4">Looking back at the overall experience.</p>
+        <div class="glass rounded-2xl p-8">
+          <div id="retrospectionBody" class="text-muted leading-relaxed whitespace-pre-line">Loading...</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox-overlay">
+    <button id="lightboxClose" class="lightbox-close">&times;</button>
+    <img id="lightboxImg" src="" alt="Full screen view">
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

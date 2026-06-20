@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Nicole Orquiola ePortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="animate-gradient min-h-screen text-primary">
+
+  <!-- Toast notification -->
+  <div id="toast" class="status-toast glass-strong text-primary border border-card/40">
+    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMessage">Saved successfully!</span>
+  </div>
+
+  <!-- Header -->
+  <header class="glass-dark border-b border-card/40 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-cream flex items-center justify-center">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+        </div>
+        <div>
+          <h1 class="text-base font-semibold text-primary">Admin Panel</h1>
+          <p class="text-xs text-muted">Manage your portfolio content</p>
+        </div>
+      </div>
+      <a href="index.html" class="text-sm text-primary opacity-80 hover:opacity-100 transition flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-card hover:bg-cream">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        View Portfolio
+      </a>
+    </div>
+  </header>
+
+  <!-- Admin nav tabs -->
+  <div class="max-w-4xl mx-auto px-4 py-4 flex gap-2 flex-wrap border-b border-card/40 sticky top-14 z-40" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);">
+    <button class="admin-tab active px-4 py-1.5 rounded-full text-sm border" data-section="home">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Home
+      </span>
+    </button>
+    <button class="admin-tab px-4 py-1.5 rounded-full text-sm border" data-section="assessment">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        Assessment
+      </span>
+    </button>
+    <button class="admin-tab px-4 py-1.5 rounded-full text-sm border" data-section="evidences">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        Evidences
+      </span>
+    </button>
+    <button class="admin-tab px-4 py-1.5 rounded-full text-sm border" data-section="reflection">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        Reflection
+      </span>
+    </button>
+    <button class="admin-tab px-4 py-1.5 rounded-full text-sm border" data-section="retrospection">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Retrospection
+      </span>
+    </button>
+  </div>
+
+  <!-- Forms container -->
+  <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+    <!-- ===== HOME ===== -->
+    <section id="section-home" class="admin-section glass rounded-2xl p-6 md:p-8">
+      <div class="flex items-center gap-3 mb-8 pb-4 border-b border-card/40">
+        <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold text-primary">Home Page Content</h2>
+          <p class="text-sm text-muted">About Me, Philosophy, Quote, and Avatar</p>
+        </div>
+      </div>
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">About Me</label>
+          <textarea id="inpAbout" rows="5" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="Write your about me text..."></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">Philosophy</label>
+          <textarea id="inpPhilosophy" rows="5" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="Write your teaching/learning philosophy..."></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">Quote</label>
+          <textarea id="inpQuote" rows="3" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="An inspiring quote..."></textarea>
+        </div>
+        <div class="pt-4 border-t border-card/40">
+          <label class="block text-sm font-medium text-primary mb-1.5">Avatar Image</label>
+          <p class="text-xs text-muted mb-2">Upload a square profile photo. Recommended size: 200x200px.</p>
+          <div class="flex items-center gap-4">
+            <input id="inpAvatar" type="file" accept="image/*" class="block w-full text-sm text-muted file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-[#F5F0BB] file:text-[#73A9AD] hover:file:bg-[#C4DFAA]">
+            <div id="avatarPreview" class="w-16 h-16 rounded-full overflow-hidden hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" alt="Avatar preview">
+            </div>
+          </div>
+        </div>
+        <div class="pt-2">
+          <button id="btnSaveHome" class="save-btn px-6 py-2.5 bg-seafoam hover:bg-mint text-primary font-semibold rounded-lg transition text-sm">Save Home</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ASSESSMENT ===== -->
+    <section id="section-assessment" class="admin-section glass rounded-2xl p-6 md:p-8">
+      <div class="flex items-center gap-3 mb-8 pb-4 border-b border-card/40">
+        <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold text-primary">Assessment</h2>
+          <p class="text-sm text-muted">Self-assessment interpretation and photo</p>
+        </div>
+      </div>
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">Interpretation</label>
+          <textarea id="inpAssessment" rows="5" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="Write your self-assessment interpretation..."></textarea>
+        </div>
+        <div class="pt-4 border-t border-card/40">
+          <label class="block text-sm font-medium text-primary mb-1.5">Assessment Photo</label>
+          <p class="text-xs text-muted mb-2">Upload an image that represents your assessment.</p>
+          <div class="flex items-center gap-4">
+            <input id="inpAssessmentImg" type="file" accept="image/*" class="block w-full text-sm text-muted file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-[#F5F0BB] file:text-[#73A9AD] hover:file:bg-[#C4DFAA]">
+            <div id="assessmentImgPreview" class="w-20 h-16 rounded-lg overflow-hidden hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" alt="Assessment photo preview">
+            </div>
+          </div>
+        </div>
+        <div class="pt-2">
+          <button id="btnSaveAssessment" class="save-btn px-6 py-2.5 bg-seafoam hover:bg-mint text-primary font-semibold rounded-lg transition text-sm">Save Assessment</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EVIDENCES ===== -->
+    <section id="section-evidences" class="admin-section glass rounded-2xl p-6 md:p-8">
+      <div class="flex items-center gap-3 mb-8 pb-4 border-b border-card/40">
+        <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold text-primary">Evidences — Content Editor</h2>
+          <p class="text-sm text-muted">Add narratives and images to each evidence node</p>
+        </div>
+      </div>
+
+      <!-- Cascade picker -->
+      <div class="rounded-xl p-5 mb-6 bg-white/30 border border-card/40">
+        <p class="text-xs text-muted uppercase tracking-wider font-semibold mb-3">Select Evidence Node</p>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-primary mb-1.5">Year</label>
+            <select id="evYear" class="dropdown-cascade w-full bg-white/60 border border-card/40 rounded-lg px-4 py-2.5 text-primary focus:outline-none focus:border-accent transition text-sm"></select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-primary mb-1.5">Category</label>
+            <select id="evCategory" class="dropdown-cascade w-full bg-white/60 border border-card/40 rounded-lg px-4 py-2.5 text-primary focus:outline-none focus:border-accent transition text-sm"></select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-primary mb-1.5">Term</label>
+            <select id="evTerm" class="dropdown-cascade w-full bg-white/60 border border-card/40 rounded-lg px-4 py-2.5 text-primary focus:outline-none focus:border-accent transition text-sm"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">Narrative Description</label>
+          <textarea id="evDescription" rows="4" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="Write a description for this evidence node..."></textarea>
+        </div>
+        <div class="pt-4 border-t border-card/40">
+          <label class="block text-sm font-medium text-primary mb-1.5">Evidence Image</label>
+          <p class="text-xs text-muted mb-2">Upload an image to accompany this evidence entry.</p>
+          <div class="flex items-center gap-4">
+            <input id="evImageInput" type="file" accept="image/*" class="block w-full text-sm text-muted file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-[#F5F0BB] file:text-[#73A9AD] hover:file:bg-[#C4DFAA]">
+            <div id="evImagePreview" class="w-16 h-16 rounded-lg overflow-hidden hidden flex-shrink-0">
+              <img class="w-full h-full object-cover" alt="Evidence image preview">
+            </div>
+          </div>
+          <div id="evExistingImage" class="mt-4 hidden">
+            <div class="flex items-center gap-4 p-3 rounded-lg bg-red-50 border border-red-200">
+              <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                <img id="evExistingImgTag" class="w-full h-full object-cover" alt="Existing evidence image">
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-red-700 font-medium">Current Image</p>
+                <p class="text-xs text-red-500">Upload a new image above to replace it.</p>
+              </div>
+              <button id="btnRemoveEvidenceImg" type="button" class="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 rounded-lg text-xs font-medium transition flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-2 flex items-center gap-3">
+          <button id="btnSaveEvidence" class="save-btn px-6 py-2.5 bg-seafoam hover:bg-mint text-primary font-semibold rounded-lg transition text-sm">Save Evidence Node</button>
+          <span id="selectedNodeLabel" class="text-xs text-muted"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REFLECTION ===== -->
+    <section id="section-reflection" class="admin-section glass rounded-2xl p-6 md:p-8">
+      <div class="flex items-center gap-3 mb-8 pb-4 border-b border-card/40">
+        <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold text-primary">Reflection</h2>
+          <p class="text-sm text-muted">Your overall learning reflection</p>
+        </div>
+      </div>
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">Reflection Content</label>
+          <textarea id="inpReflection" rows="8" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="Write your reflection..."></textarea>
+        </div>
+        <div class="pt-2">
+          <button id="btnSaveReflection" class="save-btn px-6 py-2.5 bg-seafoam hover:bg-mint text-primary font-semibold rounded-lg transition text-sm">Save Reflection</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RETROSPECTION ===== -->
+    <section id="section-retrospection" class="admin-section glass rounded-2xl p-6 md:p-8">
+      <div class="flex items-center gap-3 mb-8 pb-4 border-b border-card/40">
+        <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold text-primary">Retrospection</h2>
+          <p class="text-sm text-muted">Looking back at the overall experience</p>
+        </div>
+      </div>
+      <div class="space-y-5">
+        <div>
+          <label class="block text-sm font-medium text-primary mb-1.5">Retrospection Content</label>
+          <textarea id="inpRetrospection" rows="8" class="form-field w-full bg-white/40 border border-card/40 rounded-lg px-4 py-2.5 text-primary placeholder:text-muted focus:outline-none transition resize-y" placeholder="Write your retrospection..."></textarea>
+        </div>
+        <div class="pt-2">
+          <button id="btnSaveRetrospection" class="save-btn px-6 py-2.5 bg-seafoam hover:bg-mint text-primary font-semibold rounded-lg transition text-sm">Save Retrospection</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
